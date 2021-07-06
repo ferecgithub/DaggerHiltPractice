@@ -10,4 +10,4 @@ A practice project to learn Hilt extensively by tutorials of Mitch Tabian
 * How Hilt Made Testing Easier
 * MVVM / MVI Pattern with Hilt DI
 
-Definately recommending Mitch to follow to my fellow Android devs : https://www.youtube.com/playlist?list=PLgCYzUzKIBE_MUlyvbCiOWsfq0nFgGXQ9
+I definately recommend Mitch to follow to my fellow Android devs : https://www.youtube.com/playlist?list=PLgCYzUzKIBE_MUlyvbCiOWsfq0nFgGXQ9
