@@ -5,6 +5,7 @@ A practice project to learn Hilt extensively by tutorials of Mitch Tabian
 
 * Field Injection & Constructor Injection
 * Scoping with Hilt
+* Obsticles of Constructor Injection
 * Hilt Modules, Binds & Provides 
 * Fragment Constructor Injection & Navigation Component
 * How Hilt Made Testing Easier
