@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.google.gson.Gson
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.components.SingletonComponent
@@ -48,9 +49,11 @@ constructor(
 
 class SomeInterfaceImpl
 @Inject
-constructor() : SomeInterface {
+constructor(
+    private val someDependency: String
+) : SomeInterface {
     override fun getAThing(): String {
-        return "A Thing"
+        return "A Thing, $someDependency"
     }
 
 }
@@ -61,21 +64,26 @@ interface SomeInterface{
 
 @InstallIn(SingletonComponent::class) // These dependencies will live as long as the application lives.
 @Module
-abstract class MyModule { // Abstract class for @Binds implementation
+class MyModule {
 
     @Singleton
-    @Binds
-    abstract fun bindSomeDependency(
-        someImpl: SomeInterfaceImpl
-    ): SomeInterface
+    @Provides
+    fun provideSomeString(): String {
+        return "some string"
+    }
 
-    // @Binds doesn't work for Gson
-    /*
     @Singleton
-    @Binds
-    abstract fun bindGson(
-        gson: Gson
-    ): Gson
+    @Provides
+    fun provideSomeInterface(
+        someString: String
+    ): SomeInterface {
+        return SomeInterfaceImpl(someString)
+    }
 
-     */
+    @Singleton
+    @Provides
+    fun provideGson(): Gson {
+        return Gson()
+    }
+
 }
